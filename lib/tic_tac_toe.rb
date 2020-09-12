@@ -39,10 +39,49 @@ class TicTacToe
     (@board[index] == nil || @board[index] == " ") && index.between?(0,8)
   end 
   
+  def turn_count
+    @board.count{|token| token == "X" || token == "O"}
+  end
   
+  def current_player
+    turn_count % 2 == 0 ? "X" : "O"
+  end
   
+  def turn
+    puts "Where would you like to move?  Choose a position from 1 - 9"
+    play = gets.chomp 
+    index = input_to_index(play)
+    if valid_move?(index)
+      current_player
+      move(index, player = "X")
+      display_board
+    else
+      turn 
+  end 
+  end 
   
-  
+ def won?
+  WIN_COMBINATIONS.each {|win_combo|
+    index_0 = win_combo[0]
+    index_1 = win_combo[1]
+    index_2 = win_combo[2]
+
+    position_1 = @board[index_0]
+    position_2 = @board[index_1]
+    position_3 = @board[index_2]
+
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combo
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combo
+    end
+  }
+  false
+end
+
+  def draw?
+    
+  end 
   
   
   
