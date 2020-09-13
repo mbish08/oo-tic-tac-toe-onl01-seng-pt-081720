@@ -103,10 +103,7 @@ end
     if winner_array == false
       nil 
     elseif
-      @board[winner_array[0]] == "X"
-      "X"
-    else
-      "O"
+      @board[winner_array[0]]
  end 
 end 
   
