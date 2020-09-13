@@ -107,8 +107,8 @@ end
  end 
 end 
   
-  def play(board)
-    turn until over?(board)
+  def play
+    turn until over?
     
     if won?
       winner == "X" || winner == "O" 
