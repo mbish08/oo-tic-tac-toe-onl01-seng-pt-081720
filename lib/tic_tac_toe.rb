@@ -114,8 +114,6 @@ end
       puts winner "Congratulations #{winner}!"
       elsif draw?
       puts "Cat's Game!"
-    else 
-      
     end 
   end 
   
