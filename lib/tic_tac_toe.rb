@@ -109,6 +109,7 @@ end
   
   def play
     turn until over?
+    turn 
     
     if won?
       winner == "X" || winner == "O" 
