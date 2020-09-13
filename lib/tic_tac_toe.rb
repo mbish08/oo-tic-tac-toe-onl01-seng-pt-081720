@@ -34,7 +34,7 @@ class TicTacToe
   end 
   
   def position_taken?(index)
-    !(@board[index] == nil || @board[index] == " ")
+    !(@board[index] == nil? || @board[index] == " ")
   end 
   
   def valid_move?(index)
@@ -54,8 +54,8 @@ class TicTacToe
     play = gets.chomp 
     index = input_to_index(play)
     if valid_move?(index)
-      current_player
-      move(index, player = "X")
+      token = current_player
+      move(index, token)
       display_board
     else
       turn 
@@ -102,14 +102,19 @@ end
     winner_array = won?   
     if winner_array == false
       nil 
-    else 
+    else
       @board[winner_array[0]]
  end 
 end 
   
   def play
     turn until over?
-    puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
+    
+    if won?
+      winner == "X" || winner == "O" 
+      puts "Congratulations #{winner}!"
+    elsif draw?
+      puts "Cat's Game!"
+    end 
   end 
-  
 end 
