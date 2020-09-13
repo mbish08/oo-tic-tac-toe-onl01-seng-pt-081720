@@ -1,3 +1,5 @@
+require 'pry'
+
 class TicTacToe
   
   def initialize
@@ -79,14 +81,31 @@ class TicTacToe
   false
 end
 
+def full?
+  @board.all?{|square| square != " " } 
+end 
+
   def draw?
-    
+    if (won? == false && full? == true)
+      true
+    else (won? == true || full? == false)
+      false
+    end 
   end 
   
+ def over?
+  won? || draw?
+ end 
   
-  
-  
-  
+  def winner
+    winner_array = []
+    winner_array = won?   
+    if winner_array == false
+      nil 
+    else 
+      @board[winner_array[0]]
+ end 
+end 
   
   
 end 
