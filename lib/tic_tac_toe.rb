@@ -102,8 +102,11 @@ end
     winner_array = won?   
     if winner_array == false
       nil 
-    else 
-      @board[winner_array[0]]
+    elseif
+      @board[winner_array[0]] == "X"
+      "X"
+    else
+      "O"
  end 
 end 
   
