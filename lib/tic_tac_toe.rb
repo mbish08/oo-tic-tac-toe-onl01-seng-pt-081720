@@ -102,7 +102,7 @@ end
     winner_array = won?   
     if winner_array == false
       nil 
-    elseif
+    else
       @board[winner_array[0]]
  end 
 end 
